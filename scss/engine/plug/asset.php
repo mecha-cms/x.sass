@@ -6,7 +6,7 @@ function files(string $path): array {
     }
     $out = [$path];
     $content = \file_get_contents($path);
-    $r = '#@import\s+(?:(["\'])([^"\'\s]+)\1|url\((["\']?)([^\n]+)\1\))#';
+    $r = '#@import\s+(?:([\'"])([^"\'\s]+)\1|url\(([\'"]?)([^\n]+)\1\))#';
     if (\strpos($content, '@import') !== false && \preg_match_all($r, $content, $m)) {
         foreach ($m[2] as $v) {
             // Ignore external file(s) and native CSS file(s)
