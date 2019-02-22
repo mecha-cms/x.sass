@@ -29,7 +29,7 @@ function files(string $path): array {
 \Asset::_('.scss', function($value, $key, $data) {
     extract($value, \EXTR_SKIP);
     $state = \Extend::state('asset');
-    if ($path !== false) {
+    if (isset($path)) {
         $scss = new \scssc;
         $scss->setFormatter('scss_formatter_compressed');
         $scss->setImportPaths([dirname($path)]);
