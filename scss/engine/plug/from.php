@@ -13,7 +13,7 @@ From::_('SCSS', $fn = function(string $in, $minify = false) {
         $scss->setVariables((array) $variable);
     }
     $out = $scss->compile($in);
-    return $minify && Extend::exist('minify') ? Minify::css($out) : $out;
+    return $minify && Extend::exist('minify') ? Minify::CSS($out) : $out;
 });
 
 // Alias(es)

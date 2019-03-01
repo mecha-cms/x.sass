@@ -4,7 +4,7 @@ description: Convert SCSS syntax into CSS syntax.
 author: Taufik Nurrohman
 type: Markdown
 link: 'http://leafo.net/scssphp'
-version: 1.1.0
+version: 1.2.0
 
 dependency:
   extension:
@@ -20,16 +20,8 @@ This extension compiles SCSS code into CSS code by looking for files with extens
 
 ### Usage
 
-Dynamic loading:
-
 ~~~ .php
 Asset::set('.\path\to\file.scss');
-~~~
-
-Direct loading:
-
-~~~ .php
-echo Asset::scss('.\path\to\file.scss');
 ~~~
 
 > **Note:** The **scssphp** implements SCSS (3.2.12). It does not implement the SASS syntax, only the SCSS syntax.
