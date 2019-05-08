@@ -1,4 +1,4 @@
-<?php namespace fn\scss;
+<?php namespace _\scss;
 
 function files(string $path): array {
     if (!\is_file($path)) {

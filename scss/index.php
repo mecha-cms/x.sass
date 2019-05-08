@@ -1,6 +1,6 @@
 <?php
 
-require __DIR__ . DS . 'lot' . DS . 'worker' . DS . '@scss' . DS . 'scss.inc.php';
+require __DIR__ . DS . 'engine' . DS . 'i' . DS . '@scss' . DS . 'scss.inc.php';
 
 require __DIR__ . DS . 'engine' . DS . 'plug' . DS . 'asset.php';
 require __DIR__ . DS . 'engine' . DS . 'plug' . DS . 'from.php';
