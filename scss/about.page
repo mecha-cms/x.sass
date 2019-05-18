@@ -6,9 +6,9 @@ type: Markdown
 link: 'http://leafo.net/scssphp'
 version: 1.2.0
 
-dependency:
-  extension:
-  - asset
+lot:
+  extend:
+    asset: 1
 ...
 
 This extension compiles SCSS code into CSS code by looking for files with extension `scss` added through the `Asset::set()` method, storing the compiled results as a static file and then displaying it as a CSS file. The compiled file content will be updated automatically on every file modification changes on the SCSS file.
