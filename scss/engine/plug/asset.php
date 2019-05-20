@@ -28,17 +28,17 @@ function files(string $path): array {
 
 \Asset::_('.scss', function($value, $key) {
     extract($value, \EXTR_SKIP);
-    $state = \Extend::state('asset');
+    $state = \extend('asset');
     if (isset($path)) {
         $scss = new \scssc;
         $scss->setFormatter('scss_formatter_compressed');
         $scss->setImportPaths([dirname($path)]);
-        if ($function = \Extend::state('scss:function')) {
+        if ($function = \extend('scss:function')) {
             foreach ((array) $function as $k => $v) {
                 $scss->registerFunction($k, $v);
             }
         }
-        if ($variable = \Extend::state('scss:variable')) {
+        if ($variable = \extend('scss:variable')) {
             $scss->setVariables((array) $variable);
         }
         $result = str_replace([
@@ -59,7 +59,7 @@ function files(string $path): array {
         if (!\is_file($result) || $t > \filemtime($result)) {
             $css = $scss->compile($files[0]);
             // Optimize where possible
-            if (\Extend::exist('minify')) {
+            if (\extend('minify') !== null) {
                 $css = \Minify::CSS($css);
             }
             \File::set($css)->saveTo($result);
@@ -67,8 +67,8 @@ function files(string $path): array {
         $link = new \HTML;
         $link[0] = 'link';
         $link[1] = false;
-        $link[2] = \extend($data, [
-            'href' => \candy($state['url'], [\To::URL($result), $t ?: $_SERVER['REQUEST_TIME']]),
+        $link[2] = \alter($data, [
+            'href' => \To::URL($result) . '?v=' . ($t ?: $_SERVER['REQUEST_TIME']),
             'rel' => 'stylesheet'
         ]);
         return $link;
