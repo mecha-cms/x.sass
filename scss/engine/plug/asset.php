@@ -28,17 +28,17 @@ function files(string $path): array {
 
 \Asset::_('.scss', function($value, $key) {
     extract($value, \EXTR_SKIP);
-    $state = \extend('asset');
+    $state = \extension('asset');
     if (isset($path)) {
         $scss = new \scssc;
         $scss->setFormatter('scss_formatter_compressed');
         $scss->setImportPaths([dirname($path)]);
-        if ($function = \extend('scss:function')) {
+        if ($function = \extension('scss:function')) {
             foreach ((array) $function as $k => $v) {
                 $scss->registerFunction($k, $v);
             }
         }
-        if ($variable = \extend('scss:variable')) {
+        if ($variable = \extension('scss:variable')) {
             $scss->setVariables((array) $variable);
         }
         $result = str_replace([
@@ -59,7 +59,7 @@ function files(string $path): array {
         if (!\is_file($result) || $t > \filemtime($result)) {
             $css = $scss->compile($files[0]);
             // Optimize where possible
-            if (\extend('minify') !== null) {
+            if (\extension('minify') !== null) {
                 $css = \Minify::CSS($css);
             }
             \File::set($css)->saveTo($result);
