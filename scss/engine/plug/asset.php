@@ -67,7 +67,7 @@ function files(string $path): array {
         $link = new \HTML;
         $link[0] = 'link';
         $link[1] = false;
-        $link[2] = \alter($data, [
+        $link[2] = \extend($data, [
             'href' => \To::URL($result) . '?v=' . ($t ?: $_SERVER['REQUEST_TIME']),
             'rel' => 'stylesheet'
         ]);
