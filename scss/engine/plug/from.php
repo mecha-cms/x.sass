@@ -1,19 +1,25 @@
 <?php
 
 From::_('SCSS', $fn = function(string $in, $minify = false) {
-    $scss = new scssc;
+    $scss = new ScssPhp\ScssPhp\Compiler;
     $scss->setImportPaths([]); // Disable `@import` rule
-    $scss->setFormatter('scss_formatter' . ($minify ? '_compressed' : ""));
-    if ($function = extension('scss:function')) {
+    $scss->setFormatter("\\ScssPhp\\ScssPhp\\Formatter\\" . ($minify ? 'Crunched' : 'Expanded'));
+    $d = __DIR__ . \DS . '..' . \DS . '..' . \DS . 'state';
+    if ($function = (function($f) {
+        extract($GLOBALS, \EXTR_SKIP);
+        return require $f;
+    })($d . \DS . 'function.php')) {
         foreach ((array) $function as $k => $v) {
             $scss->registerFunction($k, $v);
         }
     }
-    if ($variable = extension('scss:variable')) {
+    if ($variable = (function($f) {
+        extract($GLOBALS, \EXTR_SKIP);
+        return require $f;
+    })($d . \DS . 'variable.php')) {
         $scss->setVariables((array) $variable);
     }
-    $out = $scss->compile($in);
-    return $minify && extension('minify') !== null ? Minify::CSS($out) : $out;
+    return $scss->compile($in);
 });
 
 // Alias(es)
