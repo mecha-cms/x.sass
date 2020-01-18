@@ -4,7 +4,7 @@ description: Convert SCSS syntax into CSS syntax.
 author: Taufik Nurrohman
 type: Markdown
 link: 'https://scssphp.github.io/scssphp'
-version: 1.3.1
+version: 1.3.2
 
 use:
   '.\lot\x\art': 0
