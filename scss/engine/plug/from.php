@@ -5,7 +5,7 @@ From::_('SCSS', $fn = function(string $in, $minify = false) {
     $scss->setImportPaths([]); // Disable `@import` rule
     $scss->setFormatter("\\ScssPhp\\ScssPhp\\Formatter\\" . ($minify ? 'Crunched' : 'Expanded'));
     $d = __DIR__ . DS . '..' . DS . '..' . DS . 'state';
-    if ($function = (function($f) {
+    if ($function = (static function($f) {
         extract($GLOBALS, EXTR_SKIP);
         return require $f;
     })($d . DS . 'function.php')) {
@@ -13,7 +13,7 @@ From::_('SCSS', $fn = function(string $in, $minify = false) {
             $scss->registerFunction($k, $v);
         }
     }
-    if ($variable = (function($f) {
+    if ($variable = (static function($f) {
         extract($GLOBALS, EXTR_SKIP);
         return require $f;
     })($d . DS . 'variable.php')) {

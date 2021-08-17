@@ -1,7 +1,7 @@
 <?php
 
 // Automatically generate `css.data` file from `scss.data` file
-namespace _\lot\x\art {
+namespace x\art {
     function scss($content) {
         if (!$path = $this->path) {
             return $content;
@@ -29,7 +29,7 @@ namespace _\lot\x\art {
     \Hook::set('page.css', __NAMESPACE__ . "\\scss", 0);
 }
 
-namespace _\lot\x {
+namespace x {
     function scss() {
         // No output needed, just trigger the asset(s)
         \Asset::join('.scss');

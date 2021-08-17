@@ -1,4 +1,4 @@
-<?php namespace _\lot\x\scss;
+<?php namespace x\scss;
 
 function files(string $path): array {
     if (!\is_file($path)) {
@@ -79,11 +79,11 @@ function files(string $path): array {
         $scss->setFormatter("\\ScssPhp\\ScssPhp\\Formatter\\Expanded");
         $css = $scss->compile($content);
         \file_put_contents($f, $css);
-        // \chmod($f, 0777);
+        \chmod($f, 0777);
         $scss->setFormatter("\\ScssPhp\\ScssPhp\\Formatter\\Crunched");
         $css = $scss->compile($content);
         \file_put_contents($ff, $css);
-        // \chmod($f, 0777);
+        \chmod($f, 0777);
     }
     return static::set($ff, $stack, $data);
 });
