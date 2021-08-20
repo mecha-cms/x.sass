@@ -6,6 +6,7 @@ Release Notes
 
 ### 1.4.0
 
+ - Moved `vendor` folder to the extension root.
  - [@mecha-cms/mecha#96](https://github.com/mecha-cms/mecha/issues/96)
 
 ### 1.3.2
