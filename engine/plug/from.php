@@ -1,26 +1,30 @@
 <?php
 
-From::_('SCSS', $fn = function(string $in, $minify = false) {
+From::_('SASS', $sass = static function (?string $content, $tidy = true): ?string {});
+
+From::_('SCSS', $scss = static function (string $content, $tidy = true): ?string {
     $scss = new ScssPhp\ScssPhp\Compiler;
     $scss->setImportPaths([]); // Disable `@import` rule
-    $scss->setFormatter("\\ScssPhp\\ScssPhp\\Formatter\\" . ($minify ? 'Crunched' : 'Expanded'));
-    $d = __DIR__ . DS . '..' . DS . '..' . DS . 'state';
-    if ($function = (static function($f) {
+    $scss->setFormatter("\\ScssPhp\\ScssPhp\\Formatter\\" . ($tidy ? 'Expanded' : 'Crunched'));
+    $folder = __DIR__ . D . '..' . D . '..' . D . 'state';
+    if ($function = (static function ($f) {
         extract($GLOBALS, EXTR_SKIP);
         return require $f;
-    })($d . DS . 'function.php')) {
+    })($folder . D . 'function.php')) {
         foreach ((array) $function as $k => $v) {
             $scss->registerFunction($k, $v);
         }
     }
-    if ($variable = (static function($f) {
+    if ($variable = (static function ($f) {
         extract($GLOBALS, EXTR_SKIP);
         return require $f;
-    })($d . DS . 'variable.php')) {
+    })($folder . D . 'variable.php')) {
         $scss->setVariables((array) $variable);
     }
-    return $scss->compile($in);
+    $content = $scss->compile($content ?? "");
+    return "" !== $content ? $content : null;
 });
 
 // Alias(es)
-From::_('scss', $fn);
+From::_('sass', $sass);
+From::_('scss', $scss);
