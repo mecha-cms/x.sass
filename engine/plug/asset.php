@@ -1,6 +1,9 @@
 <?php
 
-namespace x\sass {}
+namespace x\sass {
+    function files(string $path): array {}
+    \Asset::_('*.sass', function ($value, $key) {});
+}
 
 namespace x\scss {
     function files(string $path): array {
@@ -29,12 +32,12 @@ namespace x\scss {
         }
         return $out;
     }
-    \Asset::_('.scss', function ($value, $key) {
+    \Asset::_('*.scss', function ($value, $key) {
         $data = $value[2];
+        $link = $value['link'];
         $path = $value['path'];
         $stack = $value['stack'];
-        $url = $value['url'];
-        $x = false !== \strpos($url, '://') || 0 === \strpos($url, '//');
+        $x = false !== \strpos($link, '://') || 0 === \strpos($link, '//');
         if (!$path && !$x) {
             return '<!-- ' . $key . ' -->';
         }

@@ -36,22 +36,6 @@ Asset::set('.\path\to\file.scss');
 
 **Note:** The **scssphp** implements SCSS (3.2.12). It does not implement the SASS syntax, only the SCSS syntax.
 
-### Art Direction
-
-To enable this feature requires you to install the _Art Direction_ extension. Though, it’s already included by default
-in the core. Adding `scss.data` file to a page folder will generate `css.data` file that contains the compiled results
-of `scss.data` file automatically:
-
-~~~ .txt
-.\
-└── lot\
-    └── page\
-        ├── lorem-ipsum\
-        │   ├── css.data ← Automatic :)
-        │   └── scss.data
-        └── lorem-ipsum.page
-~~~
-
  *[HAML]: HTML Abstraction Markup Language
  *[SASS]: Syntactically Swesome Style Sheets
  *[SCSS]: Sassy CSS

@@ -2,7 +2,7 @@
 
 From::_('SASS', $sass = static function (?string $content, $tidy = true): ?string {});
 
-From::_('SCSS', $scss = static function (string $content, $tidy = true): ?string {
+From::_('SCSS', $scss = static function (?string $content, $tidy = true): ?string {
     $scss = new ScssPhp\ScssPhp\Compiler;
     $scss->setImportPaths([]); // Disable `@import` rule
     $scss->setFormatter("\\ScssPhp\\ScssPhp\\Formatter\\" . ($tidy ? 'Expanded' : 'Crunched'));
