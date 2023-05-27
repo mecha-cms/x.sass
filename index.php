@@ -13,3 +13,10 @@ namespace x {
     \Hook::set('content', __NAMESPACE__ . "\\sass", -1);
     \Hook::set('content', __NAMESPACE__ . "\\scss", -1);
 }
+
+namespace {
+    require __DIR__ . \D . 'engine' . \D . 'vendor' . \D . 'autoload.php';
+    if (\defined("\\TEST") && 'x.sass' === \TEST) {
+        \Asset::set(__DIR__ . D . 'test.scss', 20);
+    }
+}

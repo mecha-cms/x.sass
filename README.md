@@ -1,7 +1,7 @@
 SCSS Extension for [Mecha](https://github.com/mecha-cms/mecha)
 ==============================================================
 
-![Code Size](https://img.shields.io/github/languages/code-size/mecha-cms/x.scss?color=%23444&style=for-the-badge)
+![Code Size](https://img.shields.io/github/languages/code-size/mecha-cms/x.sass?color=%23444&style=for-the-badge)
 
 SASS is a style sheet language initially designed by [Hampton Catlin](https://en.wikipedia.org/wiki/Hampton_Catlin) and
 developed by Natalie Weizenbaum. After its initial versions, Weizenbaum and Chris Eppstein have continued to extend SASS
