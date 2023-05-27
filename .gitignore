@@ -1,3 +1,9 @@
 composer.lock
+engine/vendor/scssphp/.editorconfig
+engine/vendor/scssphp/.gitattributes
+engine/vendor/scssphp/.github
+engine/vendor/scssphp/.gitignore
+engine/vendor/scssphp/docs
+engine/vendor/scssphp/tests
 test.css
 test.min.css
