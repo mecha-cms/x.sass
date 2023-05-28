@@ -17,6 +17,6 @@ namespace x {
 namespace {
     require __DIR__ . \D . 'engine' . \D . 'vendor' . \D . 'autoload.php';
     if (\defined("\\TEST") && 'x.sass' === \TEST) {
-        \Asset::set(__DIR__ . D . 'test.scss', 20);
+        \Asset::set(__DIR__ . \D . 'test.scss', 20);
     }
 }

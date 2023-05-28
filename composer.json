@@ -1,5 +1,5 @@
 {
-  "description": "Converts SCSS syntax to CSS syntax.",
+  "description": "Sassy cascading style sheets.",
   "license": "GPL-3.0-or-later",
   "name": "mecha-cms/x.sass",
   "require": {

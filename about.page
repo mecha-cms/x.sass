@@ -9,10 +9,10 @@ link: 'https://scssphp.github.io/scssphp'
 version: 1.5.0
 ...
 
-SASS is a style sheet language initially designed by [Hampton Catlin](https://en.wikipedia.org/wiki/Hampton_Catlin) and
-developed by Natalie Weizenbaum. After its initial versions, Weizenbaum and Chris Eppstein have continued to extend SASS
-with SassScript, a simple scripting language used in SASS files. SASS is a preprocessor scripting language that is
-interpreted or compiled into Cascading Style Sheets (CSS). SassScript is the scripting language itself. SASS consists of
+Sass is a style sheet language initially designed by [Hampton Catlin](https://en.wikipedia.org/wiki/Hampton_Catlin) and
+developed by Natalie Weizenbaum. After its initial versions, Weizenbaum and Chris Eppstein have continued to extend Sass
+with Sass, a simple scripting language used in Sass files. Sass is a preprocessor scripting language that is
+interpreted or compiled into Cascading Style Sheets (CSS). SassScript is the scripting language itself. Sass consists of
 two syntaxes. The original syntax, called “the indented syntax,” uses a syntax similar to
 [HAML](https://en.wikipedia.org/wiki/Haml). It uses indentation to separate code blocks and newline characters to
 separate rules. The newer syntax, SCSS, uses block formatting like that of CSS. It uses braces to denote code blocks and

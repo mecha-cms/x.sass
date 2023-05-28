@@ -75,12 +75,10 @@ namespace x\scss {
             }
             $content = \file_get_contents($path);
             $scss->setFormatter("\\ScssPhp\\ScssPhp\\Formatter\\Expanded");
-            $css = $scss->compile($content);
-            \file_put_contents($file, $css);
+            \file_put_contents($file, $scss->compile($content));
             \chmod($file, 0777);
             $scss->setFormatter("\\ScssPhp\\ScssPhp\\Formatter\\Crunched");
-            $css = $scss->compile($content);
-            \file_put_contents($f, $css);
+            \file_put_contents($f, $scss->compile($content));
             \chmod($f, 0777);
         }
         return \Asset::set(\defined("\\TEST") && \TEST ? $file : $f, $stack, $data);
