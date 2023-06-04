@@ -1,17 +1,15 @@
 <?php
 
-namespace x {
-    function sass() {
+namespace x\sass {
+    function asset() {
         // Output is not required in this case, just trigger the asset(s)
-        \class_exists("\\Asset") && \Asset::join('*.sass');
+        if (\class_exists("\\Asset")) {
+            \Asset::join('*.sass');
+            \Asset::join('*.scss');
+        }
     }
-    function scss() {
-        // Output is not required in this case, just trigger the asset(s)
-        \class_exists("\\Asset") && \Asset::join('*.scss');
-    }
-    // Make sure to run this hook before `asset:head`
-    \Hook::set('content', __NAMESPACE__ . "\\sass", -1);
-    \Hook::set('content', __NAMESPACE__ . "\\scss", -1);
+    // Make sure to run this hook before `head`
+    \Hook::set('content', __NAMESPACE__ . "\\asset", -1);
 }
 
 namespace {
